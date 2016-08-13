@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Societies</h1>
+  </div>
+  <div class="list-group">
+    <a data-ng-repeat="society in vm.societies"
+       data-ui-sref="societies.view({ societyId: society._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span data-ng-bind="society.created | date:'mediumDate'"></span>
+        by
+        <span data-ng-if="society.user" data-ng-bind="society.user.displayName"></span>
+        <span data-ng-if="!society.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" data-ng-bind="society.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" data-ng-if="vm.societies.$resolved && !vm.societies.length">
+    No Societies yet, why don't you <a data-ui-sref="societies.create">create one</a>?
+  </div>
+</section>
