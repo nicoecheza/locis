@@ -17,6 +17,7 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.permission = Authentication.user.roles.indexOf('admin') !== -1;
 
     // Remove existing Regulation
     function remove() {

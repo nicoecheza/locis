@@ -13,7 +13,7 @@
       title: 'Regulations',
       state: 'regulations',
       type: 'dropdown',
-      roles: ['*']
+      roles: ['user']
     });
 
     // Add the dropdown list item
@@ -26,7 +26,7 @@
     Menus.addSubMenuItem('topbar', 'regulations', {
       title: 'Create Regulation',
       state: 'regulations.create',
-      roles: ['user']
+      roles: ['admin']
     });
   }
 })();

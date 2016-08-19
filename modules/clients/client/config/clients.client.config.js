@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('societies')
+    .module('clients')
     .run(menuConfig);
 
   menuConfig.$inject = ['menuService'];
@@ -10,23 +10,23 @@
   function menuConfig(Menus) {
     // Set top bar menu items
     Menus.addMenuItem('topbar', {
-      title: 'Societies',
-      state: 'societies',
+      title: 'Clients',
+      state: 'clients',
       type: 'dropdown',
       roles: ['user']
     });
 
     // Add the dropdown list item
-    Menus.addSubMenuItem('topbar', 'societies', {
-      title: 'List Societies',
-      state: 'societies.list'
+    Menus.addSubMenuItem('topbar', 'clients', {
+      title: 'List Clients',
+      state: 'clients.list'
     });
 
     // Add the dropdown create item
-    Menus.addSubMenuItem('topbar', 'societies', {
-      title: 'Create Society',
-      state: 'societies.create',
-      roles: ['admin']
+    Menus.addSubMenuItem('topbar', 'clients', {
+      title: 'Create Client',
+      state: 'clients.create',
+      roles: ['user']
     });
   }
 })();

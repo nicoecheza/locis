@@ -5,10 +5,12 @@
     .module('regulations')
     .controller('RegulationsListController', RegulationsListController);
 
-  RegulationsListController.$inject = ['RegulationsService'];
+  RegulationsListController.$inject = ['RegulationsService', 'Authentication'];
 
-  function RegulationsListController(RegulationsService) {
+  function RegulationsListController(RegulationsService, Authentication) {
     var vm = this;
+
+    vm.permission = Authentication.user.roles.indexOf('admin') !== -1;
 
     vm.regulations = RegulationsService.query();
   }

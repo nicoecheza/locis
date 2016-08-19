@@ -16,7 +16,7 @@
       <h4 class="list-group-item-heading" data-ng-bind="society.name"></h4>
     </a>
   </div>
-  <div class="alert alert-warning text-center" data-ng-if="vm.societies.$resolved && !vm.societies.length">
+  <div class="alert alert-warning text-center" data-ng-if="vm.societies.$resolved && !vm.societies.length && vm.permission">
     No Societies yet, why don't you <a data-ui-sref="societies.create">create one</a>?
   </div>
 </section>
