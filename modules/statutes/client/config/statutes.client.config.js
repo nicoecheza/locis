@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('societies')
+    .module('statutes')
     .run(menuConfig);
 
   menuConfig.$inject = ['menuService'];
@@ -10,23 +10,23 @@
   function menuConfig(Menus) {
     // Set top bar menu items
     Menus.addMenuItem('topbar', {
-      title: 'Societies',
-      state: 'societies',
+      title: 'Statutes',
+      state: 'statutes',
       type: 'dropdown',
       roles: ['user']
     });
 
     // Add the dropdown list item
-    Menus.addSubMenuItem('topbar', 'societies', {
-      title: 'List Societies',
-      state: 'societies.list'
+    Menus.addSubMenuItem('topbar', 'statutes', {
+      title: 'List Statutes',
+      state: 'statutes.list'
     });
 
     // Add the dropdown create item
-    Menus.addSubMenuItem('topbar', 'societies', {
-      title: 'Create Society',
-      state: 'societies.create',
-      roles: ['admin']
+    Menus.addSubMenuItem('topbar', 'statutes', {
+      title: 'Create Statute',
+      state: 'statutes.create',
+      roles: ['user']
     });
   }
 })();

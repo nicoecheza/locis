@@ -1,11 +1,11 @@
 <section>
   <div class="page-header">
-    <h1 data-ng-bind="vm.society.name"></h1>
+    <h1 data-ng-bind="vm.statute.name"></h1>
   </div>
   <div class="pull-right"
        data-ng-show="vm.permission">
     <a class="btn btn-primary"
-       data-ui-sref="societies.edit({ societyId: vm.society._id })">
+       data-ui-sref="statutes.edit({ statuteId: vm.statute._id })">
       <i class="glyphicon glyphicon-edit"></i>
     </a>
     <a class="btn btn-primary" data-ng-click="vm.remove()">
@@ -15,12 +15,12 @@
   <small>
     <em class="text-muted">
       Posted on
-      <span data-ng-bind="vm.society.created | date:'mediumDate'"></span>
+      <span data-ng-bind="vm.statute.created | date:'mediumDate'"></span>
       by
-      <span data-ng-if="vm.society.user"
-            data-ng-bind="vm.society.user.displayName"></span>
-      <span data-ng-if="!vm.society.user">Deleted User</span>
+      <span data-ng-if="vm.statute.user"
+            data-ng-bind="vm.statute.user.displayName"></span>
+      <span data-ng-if="!vm.statute.user">Deleted User</span>
     </em>
   </small>
-  <p class="lead" data-ng-bind="vm.society.content"></p>
+  <p class="lead" data-ng-bind="vm.statute.content"></p>
 </section>
