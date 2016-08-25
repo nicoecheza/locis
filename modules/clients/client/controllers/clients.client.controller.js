@@ -6,9 +6,9 @@
     .module('clients')
     .controller('ClientsController', ClientsController);
 
-  ClientsController.$inject = ['$scope', '$state', 'Authentication', 'clientResolve'];
+  ClientsController.$inject = ['$scope', '$state', '$http', 'Authentication', 'clientResolve'];
 
-  function ClientsController ($scope, $state, Authentication, client) {
+  function ClientsController ($scope, $state, $http, Authentication, client) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -17,7 +17,13 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.sendMail = sendMail;
     vm.permission = Authentication.user.roles.indexOf('admin') !== -1;
+
+    // Remove existing Client
+    function sendMail() {
+      $http.post('/mail', { to: vm.client.email });
+    }
 
     // Remove existing Client
     function remove() {

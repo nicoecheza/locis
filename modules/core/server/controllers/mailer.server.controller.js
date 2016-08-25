@@ -20,11 +20,11 @@ exports.sendMail = function (req, res, next) {
 
   // setup e-mail data with unicode symbols
   var mailOptions = {
-      from: '"Locis Services" <locis.services@gmail.com>', // sender address
-      to: req.query.to, // list of receivers
-      subject: 'Hello ✔', // Subject line
-      text: 'Hello world 🐴', // plaintext body
-      html: '<b>Hello world 🐴</b>' // html body
+      from: '"Locis Services" <locis.services@gmail.com>',
+      to: req.body.to,
+      subject: 'Hello ✔',
+      text: 'Hello world 🐴',
+      html: '<b>Hello world 🐴</b>'
   };
 
   transporter.sendMail(mailOptions, function(error, info) {

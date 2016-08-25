@@ -12,7 +12,7 @@ module.exports = function (app) {
   // Return a 404 for all undefined api, module or lib routes
   app.route('/:url(api|modules|lib)/*').get(core.renderNotFound);
 
-  app.route('/mail').get(mailer.sendMail);
+  app.route('/mail').post(mailer.sendMail);
 
   // Define application route
   app.route('/*').get(core.renderIndex);
