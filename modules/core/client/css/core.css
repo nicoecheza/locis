@@ -41,3 +41,9 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+
+/* Our styles */
+.list-group-item {
+	float: left;
+	width: 100%;
+}

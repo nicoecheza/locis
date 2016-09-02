@@ -1,5 +1,7 @@
 'use strict';
 
+var STATUTES_STATUS = require('../../types').STATUTES_STATUS;
+
 /**
  * Module dependencies.
  */
@@ -13,7 +15,7 @@ var StatuteSchema = new Schema({
   name: {
     type: String,
     default: '',
-    required: 'Please fill Statute name',
+    required: 'Por favor, asigne un nombre al estatuto',
     trim: true
   },
   created: {
@@ -23,6 +25,12 @@ var StatuteSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  status: {
+    type: 'string',
+    enum: STATUTES_STATUS,
+    default: STATUTES_STATUS[0],
+    required: 'Por favor, asigne un estado al estatuto'
   }
 });
 

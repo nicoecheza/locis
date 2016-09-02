@@ -1,0 +1,27 @@
+
+.status {
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	float: right;
+}
+
+.status-ready {
+	background-color: blue;
+}
+
+.status-sent {
+	background-color: yellow;
+}
+
+.status-reviewing {
+	background-color: orange;
+}
+
+.status-rejected {
+	background-color: red;
+}
+
+ .status-done {
+	background-color: green;
+}
