@@ -27,7 +27,7 @@
 
     // Remove existing Client
     function remove() {
-      if (confirm('Are you sure you want to delete?')) {
+      if (confirm('Esta seguro que quiere borrar el cliente?')) {
         vm.client.$remove($state.go('clients.list'));
       }
     }

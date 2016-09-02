@@ -21,7 +21,7 @@
 
     // Remove existing Regulation
     function remove() {
-      if (confirm('Are you sure you want to delete?')) {
+      if (confirm('Esta seguro que quiere borrar la regulacion?')) {
         vm.regulation.$remove($state.go('regulations.list'));
       }
     }

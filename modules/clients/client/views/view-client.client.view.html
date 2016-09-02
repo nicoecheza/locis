@@ -2,7 +2,7 @@
   <div class="page-header">
     <h1 data-ng-bind="vm.client.name"></h1>
     <h4 data-ng-bind="vm.client.email"></h4>
-    <button data-ng-click="vm.sendMail()">Send email</button>
+    <button data-ng-click="vm.sendMail()">Enviar email</button>
   </div>
   <div class="pull-right"
        data-ng-show="vm.client.isCurrentUserOwner">
@@ -16,12 +16,12 @@
   </div>
   <small>
     <em class="text-muted">
-      Posted on
-      <span data-ng-bind="vm.client.created | date:'mediumDate'"></span>
-      by
+      Creado el
+      <span data-ng-bind="vm.client.created | date:'d MMM, y'"></span>
+      por
       <span data-ng-if="vm.client.user"
             data-ng-bind="vm.client.user.displayName"></span>
-      <span data-ng-if="!vm.client.user">Deleted User</span>
+      <span data-ng-if="!vm.client.user">Usuario borrado</span>
     </em>
   </small>
   <p class="lead" data-ng-bind="vm.client.content"></p>

@@ -21,7 +21,7 @@
 
     // Remove existing Society
     function remove() {
-      if (confirm('Are you sure you want to delete?')) {
+      if (confirm('Esta seguro que quiere borrar el cliente?')) {
         vm.society.$remove($state.go('societies.list'));
       }
     }

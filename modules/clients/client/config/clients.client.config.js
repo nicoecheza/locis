@@ -10,7 +10,7 @@
   function menuConfig(Menus) {
     // Set top bar menu items
     Menus.addMenuItem('topbar', {
-      title: 'Clients',
+      title: 'Clientes',
       state: 'clients',
       type: 'dropdown',
       roles: ['user']
@@ -18,13 +18,13 @@
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'clients', {
-      title: 'List Clients',
+      title: 'Listar Clientes',
       state: 'clients.list'
     });
 
     // Add the dropdown create item
     Menus.addSubMenuItem('topbar', 'clients', {
-      title: 'Create Client',
+      title: 'Crear Clientes',
       state: 'clients.create',
       roles: ['user']
     });

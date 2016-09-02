@@ -8,7 +8,7 @@
        class="list-group-item">
       <small class="list-group-item-text">
         Posted on
-        <span data-ng-bind="regulation.created | date:'mediumDate'"></span>
+        <span data-ng-bind="regulation.created | date:'d MMM, y'"></span>
         by
         <span data-ng-if="regulation.user" data-ng-bind="regulation.user.displayName"></span>
         <span data-ng-if="!regulation.user">Deleted User</span>
