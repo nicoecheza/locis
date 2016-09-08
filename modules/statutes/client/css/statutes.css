@@ -1,4 +1,15 @@
 
+.view-statute .title {
+	float: left;
+	width: auto;
+}
+
+.view-statute .statuses {
+	margin-top: 24px;
+}
+
+/* Status directive */
+
 .status {
 	border-radius: 50%;
 	width: 25px;
@@ -25,3 +36,34 @@
  .status-done {
 	background-color: green;
 }
+
+/* Statuses directive */
+
+.statuses {
+	list-style: none;
+	float: left;
+}
+
+.statuses li {
+	float: left;
+	margin-right: 12px;
+	padding: 3px 12px;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+.statuses li.active {
+	background-color: #efefef;
+}
+
+.statuses li:hover {
+	background-color: #dadada;
+}
+
+.statuses .text {
+	float: left;
+	margin-right: 6px;
+	margin-top: 3px;
+}
+
+

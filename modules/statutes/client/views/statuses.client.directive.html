@@ -1,0 +1,10 @@
+
+<ul class="statuses">
+  <li data-ng-repeat="status in vm.STATUTES_STATUS"
+      data-ng-class="{ active: status === vm.statute.status }"
+      data-ng-click="vm.updateStatus(status)"
+    >
+      <span data-ng-class="{ status: true, 'status-{{status}}': true }"></span>
+      <span class="text">{{ status.charAt(0).toUpperCase() + status.slice(1) }}</span>
+    </li>
+</ul>

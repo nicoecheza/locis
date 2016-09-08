@@ -43,7 +43,7 @@ a:hover .header-profile-image {
 }
 
 /* Our styles */
-.list-group-item {
+.list-group-item, .page-header {
 	float: left;
 	width: 100%;
 }

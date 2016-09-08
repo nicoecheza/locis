@@ -17,7 +17,7 @@
 
     function link(scope, element, attrs, modelCtrl) {
 
-      var status = scope.statute.status;
+      var status = attrs.status;
 
       switch (status) {
 

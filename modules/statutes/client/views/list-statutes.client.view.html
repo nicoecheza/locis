@@ -14,7 +14,7 @@
         <span data-ng-if="!statute.user">Deleted User</span>
       </small>
       <h4 class="list-group-item-heading" data-ng-bind="statute.name"></h4>
-      <status />
+      <status status={{statute.status}} />
     </a>
   </div>
   <div class="alert alert-warning text-center" data-ng-if="vm.statutes.$resolved && !vm.statutes.length && vm.permission">

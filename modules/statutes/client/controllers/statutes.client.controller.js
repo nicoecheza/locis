@@ -11,13 +11,22 @@
   function StatutesController ($scope, $state, Authentication, statute) {
     var vm = this;
 
+    vm.STATUTES_STATUS = ['ready', 'sent', 'reviewing', 'rejected', 'done'];
+
     vm.authentication = Authentication;
     vm.statute = statute;
     vm.error = null;
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.updateStatus = updateStatus;
     vm.permission = Authentication.user.roles.length;
+
+    // Update status
+    function updateStatus(status) {
+      vm.statute.status = status;
+      vm.statute.$update();
+    }
 
     // Remove existing Statute
     function remove() {
