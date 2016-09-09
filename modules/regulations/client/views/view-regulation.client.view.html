@@ -14,12 +14,12 @@
   </div>
   <small>
     <em class="text-muted">
-      Posted on
+      Creado el
       <span data-ng-bind="vm.regulation.created | date:'d MMM, y'"></span>
-      by
+      por
       <span data-ng-if="vm.regulation.user"
             data-ng-bind="vm.regulation.user.displayName"></span>
-      <span data-ng-if="!vm.regulation.user">Deleted User</span>
+      <span data-ng-if="!vm.regulation.user">Usuario borrado</span>
     </em>
   </small>
   <p class="lead" data-ng-bind="vm.regulation.content"></p>
