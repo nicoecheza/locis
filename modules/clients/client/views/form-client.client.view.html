@@ -27,10 +27,38 @@
           </div>
         </div>
         <div class="form-group" show-errors>
+          <label class="control-label" for="name">Dirección</label>
+          <input name="address" type="text" ng-model="vm.client.address" id="address" class="form-control" placeholder="Dirección" required>
+          <div ng-messages="vm.form.clientForm.address.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">La dirección es requerida.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
           <label class="control-label" for="name">Email</label>
           <input name="email" type="text" ng-model="vm.client.email" id="email" class="form-control" placeholder="Email" required>
           <div ng-messages="vm.form.clientForm.email.$error" role="alert">
             <p class="help-block error-text" ng-message="required">El email del cliente es requerido.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Teléfono</label>
+          <input name="phone" type="text" ng-model="vm.client.phone" id="phone" class="form-control" placeholder="Teléfono" required>
+          <div ng-messages="vm.form.clientForm.phone.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">El número de teléfono es requerido.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Celular</label>
+          <input name="cellphone" type="text" ng-model="vm.client.cellphone" id="cellphone" class="form-control" placeholder="Celular" required>
+          <div ng-messages="vm.form.clientForm.cellphone.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">El número de celular es requerido.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Fax</label>
+          <input name="fax" type="text" ng-model="vm.client.fax" id="fax" class="form-control" placeholder="Fax" required>
+          <div ng-messages="vm.form.clientForm.fax.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">El número de fax es requerido.</p>
           </div>
         </div>
         <div class="form-group">
