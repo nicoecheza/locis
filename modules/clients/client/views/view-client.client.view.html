@@ -1,16 +1,23 @@
 <section>
   <div class="page-header">
-    <h1 data-ng-bind="vm.client.name"></h1>
-    <h2 data-ng-bind="vm.client.business_name"></h2>
-    <h4 data-ng-bind="vm.client.cuil"></h4>
-    <h4 data-ng-bind="vm.client.address"></h4>
-    <h4 data-ng-bind="vm.client.email"></h4>
-    <ul>
-      <li data-ng-bind="vm.client.phone"></li>
-      <li data-ng-bind="vm.client.cellphone"></li>
-      <li data-ng-bind="vm.client.fax"></li>
-    </ul>
-    <button data-ng-click="vm.sendMail()">Enviar email</button>
+    <div class="jumbotron">
+      <div class="client_data">
+        <h1 data-ng-bind="vm.client.name"></h1>
+        <h2 data-ng-bind="vm.client.business_name"></h2>
+        <h4 data-ng-bind="vm.client.cuil"></h4>
+        <h4 data-ng-bind="vm.client.address"></h4>
+        <h4 data-ng-bind="vm.client.email"></h4>
+        <img src="modules/core/client/img/brand/phone.png" alt="phone logo" style="width:10px;height:10px;display:inline;">
+        <p data-ng-bind="vm.client.phone" style="display:inline;"></p>
+        <img src="modules/core/client/img/brand/cellphone.png" alt="cellphone logo" style="width:10px;height:10px;display:inline;">
+        <p data-ng-bind="vm.client.cellphone" style="display:inline;"></p>
+        <img src="modules/core/client/img/brand/fax.png" alt="fax logo" style="width:20px;height:20px;display:inline;">
+        <p data-ng-bind="vm.client.fax" style="display:inline;"></p>
+      </div>
+      <div class="mail_button">
+        <button data-ng-click="vm.sendMail()">Enviar email</button>
+      </div>
+    </div>
   </div>
   <div class="pull-right"
        data-ng-show="vm.client.isCurrentUserOwner">

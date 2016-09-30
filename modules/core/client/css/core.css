@@ -41,6 +41,16 @@ a:hover .header-profile-image {
 .has-error .help-inline.error-text {
   display: inline;
 }
+.client_data h1 {
+  text-align: center;
+}
+.client_data p {
+  font-size: 15px;
+}
+.mail_button {
+  text-align: center;
+  padding: 20px 0;
+}
 
 /* Our styles */
 .list-group-item, .page-header {
