@@ -20,9 +20,10 @@ var RegulationSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  user: {
-    type: Schema.ObjectId,
-    ref: 'User'
+  template: {
+    type: String,
+    required: 'Please fill the Template field',
+    trim: true
   }
 });
 

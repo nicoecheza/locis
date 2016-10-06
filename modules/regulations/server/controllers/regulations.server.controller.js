@@ -38,8 +38,18 @@ exports.read = function(req, res) {
   // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Article model.
   regulation.isCurrentUserOwner = req.user && regulation.user && regulation.user._id.toString() === req.user._id.toString() ? true : false;
 
+  // regulation.template = parseTemplate(regulation.template);
+
   res.jsonp(regulation);
 };
+
+function parseTemplate(tmpl) {
+
+
+
+  tmpl = tmpl.replace('$[text]', matchInput(text));
+
+}
 
 /**
  * Update a Regulation
@@ -80,7 +90,7 @@ exports.delete = function(req, res) {
 /**
  * List of Regulations
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
   Regulation.find().sort('-created').populate('user', 'displayName').exec(function(err, regulations) {
     if (err) {
       return res.status(400).send({

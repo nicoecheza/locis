@@ -26,7 +26,7 @@
     Menus.addSubMenuItem('topbar', 'regulations', {
       title: 'Crear Regulaciones',
       state: 'regulations.create',
-      roles: ['admin']
+      roles: ['superadmin']
     });
   }
 })();
