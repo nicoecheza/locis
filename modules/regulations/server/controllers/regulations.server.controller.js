@@ -7,7 +7,8 @@ var path = require('path'),
   mongoose = require('mongoose'),
   Regulation = mongoose.model('Regulation'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
-  _ = require('lodash');
+  _ = require('lodash'),
+  replacer = require('../types/replacer');
 
 /**
  * Create a Regulation
@@ -38,16 +39,32 @@ exports.read = function(req, res) {
   // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Article model.
   regulation.isCurrentUserOwner = req.user && regulation.user && regulation.user._id.toString() === req.user._id.toString() ? true : false;
 
-  // regulation.template = parseTemplate(regulation.template);
+  regulation.template = parseTemplate(regulation.template);
 
   res.jsonp(regulation);
 };
 
 function parseTemplate(tmpl) {
 
+  var init = tmpl.indexOf("{"),
+      end = tmpl.indexOf("}");
 
+  while (init >= 0 && end >= 0) {
 
-  tmpl = tmpl.replace('$[text]', matchInput(text));
+    // Get interpolation
+    var interpolation = tmpl.substring(init, end + 1),
+        parsed = JSON.parse(interpolation);
+
+    // Replace template interpolations with HTML
+    tmpl = tmpl.replace(interpolation, replacer(parsed));
+
+    // Update init & end positions looking for next interpolation
+    init = tmpl.indexOf("{");
+    end  = tmpl.indexOf("}");
+
+  }
+
+  return tmpl;
 
 }
 
