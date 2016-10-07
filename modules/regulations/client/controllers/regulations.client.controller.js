@@ -6,9 +6,9 @@
     .module('regulations')
     .controller('RegulationsController', RegulationsController);
 
-  RegulationsController.$inject = ['$scope', '$state', 'Authentication', 'regulationResolve'];
+  RegulationsController.$inject = ['$scope', '$sce', '$state', 'Authentication', 'regulationResolve'];
 
-  function RegulationsController ($scope, $state, Authentication, regulation) {
+  function RegulationsController ($scope, $sce, $state, Authentication, regulation) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -18,6 +18,10 @@
     vm.remove = remove;
     vm.save = save;
     vm.permission = Authentication.user.roles.indexOf('admin') !== -1;
+
+    $scope.toTrustedHTML = function(html){
+      return $sce.trustAsHtml(html);
+    }
 
     // Remove existing Regulation
     function remove() {

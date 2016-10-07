@@ -3,10 +3,10 @@ module.exports = function(obj) {
   switch (obj.type) {
 
     case 'string':
-      return '<input type="text" placeholder="' + obj.placeholder  + '" />';
+      return '<input type="text" name="' + obj.name  + '" placeholder="' + obj.placeholder  + '" />';
 
     case 'number':
-      return '<input type="number" placeholder="' + obj.placeholder  + '" />';
+      return '<input type="number" name="' + obj.name  + '" placeholder="' + obj.placeholder  + '" />';
 
   }
 
