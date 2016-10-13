@@ -14,15 +14,6 @@
         url: '/regulations',
         template: '<ui-view/>'
       })
-      .state('regulations.list', {
-        url: '',
-        templateUrl: 'modules/regulations/client/views/list-regulations.client.view.html',
-        controller: 'RegulationsListController',
-        controllerAs: 'vm',
-        data: {
-          pageTitle: 'Regulations List'
-        }
-      })
       .state('regulations.create', {
         url: '/create',
         templateUrl: 'modules/regulations/client/views/form-regulation.client.view.html',

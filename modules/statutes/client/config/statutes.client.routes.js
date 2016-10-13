@@ -60,6 +60,15 @@
         data:{
           pageTitle: 'Statute {{ articleResolve.name }}'
         }
+      })
+      .state('regulations.list', {
+        url: '',
+        templateUrl: 'modules/statutes/client/views/list-regulations.client.view.html',
+        controller: 'RegulationsListController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Regulations List'
+        }
       });
   }
 

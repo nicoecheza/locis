@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('regulations')
+    .module('statutes')
     .controller('RegulationsListController', RegulationsListController);
 
   RegulationsListController.$inject = ['RegulationsService', 'Authentication'];

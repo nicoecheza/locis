@@ -16,12 +16,6 @@
       roles: ['user']
     });
 
-    // Add the dropdown list item
-    Menus.addSubMenuItem('topbar', 'regulations', {
-      title: 'Listar Regulaciones',
-      state: 'regulations.list'
-    });
-
     // Add the dropdown create item
     Menus.addSubMenuItem('topbar', 'regulations', {
       title: 'Crear Regulaciones',

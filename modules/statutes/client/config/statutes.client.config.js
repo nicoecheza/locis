@@ -28,5 +28,13 @@
       state: 'statutes.create',
       roles: ['user']
     });
+
+    // Add the dropdown list item
+    Menus.addSubMenuItem('topbar', 'statutes', {
+      title: 'Listar Regulaciones',
+      state: 'regulations.list',
+      roles: ['user']
+    });
+
   }
 })();
