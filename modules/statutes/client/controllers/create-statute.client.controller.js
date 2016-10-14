@@ -6,9 +6,13 @@
     .module('statutes')
     .controller('CreateStatuteController', CreateStatuteController);
 
-  CreateStatuteController.$inject = ['$scope', '$state', 'Authentication', 'statuteResolve', 'ClientsService', 'RegulationsService'];
+  CreateStatuteController.$inject = ['$scope', '$state', 'Authentication',
+                                     'statuteResolve', 'ClientsService',
+                                     'RegulationsService', '$sce'];
 
-  function CreateStatuteController ($scope, $state, Authentication, statute, ClientsService, RegulationsService) {
+  function CreateStatuteController (
+      $scope, $state, Authentication, statute, ClientsService, RegulationsService,
+      $sce) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -21,6 +25,12 @@
 
     vm.clients = ClientsService.query();
     vm.regulations = RegulationsService.query();
+    vm.regulation = null;
+
+    // Move this to an external module (this code is duplicated in regulations.controller)
+    $scope.toTrustedHTML = function(html) {
+      return $sce.trustAsHtml(html);
+    }
 
     // Update status
     function updateStatus(status) {
@@ -29,8 +39,7 @@
     }
 
     function regulationDisplay(id) {
-      vm.regulation = RegulationsService.get({ id: id });
-      console.log(vm.regulation);
+      vm.regulation = RegulationsService.get({ regulationId: id });
     }
 
     // Save Statute
