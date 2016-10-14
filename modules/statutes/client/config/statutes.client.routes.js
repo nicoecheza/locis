@@ -26,7 +26,7 @@
       .state('statutes.create', {
         url: '/create',
         templateUrl: 'modules/statutes/client/views/form-statute.client.view.html',
-        controller: 'StatutesController',
+        controller: 'CreateStatuteController',
         controllerAs: 'vm',
         resolve: {
           statuteResolve: newStatute

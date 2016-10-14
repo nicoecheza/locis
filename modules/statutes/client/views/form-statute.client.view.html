@@ -1,19 +1,33 @@
 <section>
   <div class="page-header">
-    <h1>{{vm.statute._id ? 'Edit Statute' : 'New Statute'}}</h1>
+    <h1>{{vm.statute._id ? 'Editar estatuto' : 'Nuevo estatuto'}}</h1>
   </div>
   <div class="col-md-12">
     <form name="vm.form.statuteForm" class="form-horizontal" ng-submit="vm.save(vm.form.statuteForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
-          <label class="control-label" for="name">Name</label>
-          <input name="name" type="text" ng-model="vm.statute.name" id="name" class="form-control" placeholder="Name" required>
+          <label class="control-label" for="name">Nombre</label>
+          <input name="name" type="text" ng-model="vm.statute.name" id="name" class="form-control" placeholder="Nombre" required>
           <div ng-messages="vm.form.statuteForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Statute name is required.</p>
+            <p class="help-block error-text" ng-message="required">El nombre del estatuto es requerido.</p>
           </div>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-default">{{vm.statute._id ? 'Update' : 'Create'}}</button>
+          <label class="control-label" for="client">Cliente</label>
+          <select>
+            <option data-ng-repeat="client in vm.clients">{{client.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="regulation">Regulación</label>
+          <select 
+            ng-options="regulation._id as regulation.name for regulation in vm.regulations" 
+            ng-model="regulation._id" 
+            ng-change="vm.regulationDisplay(regulation._id)">
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.statute._id ? 'Actualizar' : 'Crear'}}</button>
         </div>
         <div ng-show="vm.error" class="text-danger">
           <strong ng-bind="vm.error"></strong>
