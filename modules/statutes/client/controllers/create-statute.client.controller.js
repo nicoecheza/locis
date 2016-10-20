@@ -22,6 +22,7 @@
     vm.updateStatus = updateStatus;
     vm.permission = Authentication.user.roles.length;
     vm.regulationDisplay = regulationDisplay;
+    vm.statute = statute;
 
     vm.clients = ClientsService.query();
     vm.regulations = RegulationsService.query();
@@ -40,6 +41,11 @@
 
     function regulationDisplay(id) {
       vm.regulation = RegulationsService.get({ regulationId: id });
+      vm.statute.regulation = id;
+    }
+
+    function getSocietyFields(regulation) {
+      console.log(regulation);
     }
 
     // Save Statute
@@ -53,7 +59,8 @@
       if (vm.statute._id) {
         vm.statute.$update(successCallback, errorCallback);
       } else {
-        vm.statute.$save(successCallback, errorCallback);
+        vm.statute.society = getSocietyFields(vm.regulation);
+        // vm.statute.$save(successCallback, errorCallback);
       }
 
       function successCallback(res) {

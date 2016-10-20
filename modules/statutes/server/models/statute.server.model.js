@@ -27,10 +27,23 @@ var StatuteSchema = new Schema({
     ref: 'User'
   },
   status: {
-    type: 'string',
+    type: String,
     enum: STATUTES_STATUS,
     default: STATUTES_STATUS[0],
     required: 'Por favor, asigne un estado al estatuto'
+  },
+  client: {
+    type: Schema.ObjectId,
+    ref: 'Client'
+  },
+  regulation: {
+    type: Schema.ObjectId,
+    ref: 'Regulation'
+  },
+  society: {
+    type: Object,
+    default: {},
+    trim: true
   }
 });
 
