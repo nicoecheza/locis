@@ -32,6 +32,7 @@
         <div class="form-group">
           <span data-ng-show="!vm.regulation">Seleccione una regulación</span>
           <p
+            class="regulation"
             data-ng-show="vm.regulation"
             data-ng-bind-html="toTrustedHTML(vm.regulation.template)"
           ></p>

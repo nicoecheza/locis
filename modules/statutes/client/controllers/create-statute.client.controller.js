@@ -45,7 +45,12 @@
     }
 
     function getSocietyFields(regulation) {
-      console.log(regulation);
+      var fields = document.querySelectorAll('.regulation input');
+      var result = {};
+      fields.forEach(function(field) {
+        result[field.name] = field.value;
+      });
+      return result;
     }
 
     // Save Statute
@@ -60,7 +65,7 @@
         vm.statute.$update(successCallback, errorCallback);
       } else {
         vm.statute.society = getSocietyFields(vm.regulation);
-        // vm.statute.$save(successCallback, errorCallback);
+        vm.statute.$save(successCallback, errorCallback);
       }
 
       function successCallback(res) {
