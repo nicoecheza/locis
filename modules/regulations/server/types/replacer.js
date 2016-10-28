@@ -8,6 +8,9 @@ module.exports = function(obj) {
     case 'number':
       return '<input type="number" name="' + obj.name  + '" placeholder="' + obj.placeholder  + '" />';
 
+    case 'day':
+      return '<input type="number" name="' + obj.name  + '" placeholder="' + obj.placeholder  + '" min="1" max="31"/>';
+
   }
 
 };
