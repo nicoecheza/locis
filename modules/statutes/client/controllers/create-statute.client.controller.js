@@ -26,7 +26,7 @@
 
     vm.clients = ClientsService.query();
     vm.regulations = RegulationsService.query();
-    vm.regulation = null;
+    // vm.regulation = null;
 
     // Move this to an external module (this code is duplicated in regulations.controller)
     $scope.toTrustedHTML = function(html) {
