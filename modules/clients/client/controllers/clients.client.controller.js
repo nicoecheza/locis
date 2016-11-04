@@ -22,7 +22,7 @@
 
     // Remove existing Client
     function sendMail() {
-      $http.post('/mail', { to: vm.client.email });
+      $http.post('/mail', { to: vm.client.email, name: vm.client.name});
     }
 
     // Remove existing Client

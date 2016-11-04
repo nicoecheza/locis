@@ -22,9 +22,9 @@ exports.sendMail = function (req, res, next) {
   var mailOptions = {
       from: '"Locis Services" <locis.services@gmail.com>',
       to: req.body.to,
-      subject: 'Hello ✔',
-      text: 'Hello world 🐴',
-      html: '<b>Hello world 🐴</b>'
+      subject: 'Bienvenido ' + req.body.name,
+      text: 'Bienvenido ' + req.body.name,
+      html: '<b>Gracias por formar parte de nuestra empresa.</b><br /> Por favor sea amable de facilitarnos los siguientes datos para que podamos proceder con la constitución del estatuto por usted requerido.<br /><ul><li>Nombre de la sociedad.</li><li>Cantidad de socios</li><li>Nombre de los socios</li><li>Nacionalidad</li><li>Estado Civil</li><li>Nombre de los padres</li><li>Nombre del cónyuge</li><li>Número de DNI o Pasaporte</li><li>Domicilio (direccion completa y provincia)</li><li>Objeto de la sociedad</li><li>Capital social</li><li>Cantidad de acciones y valor de las mismas</li><li>Nombre del Director titular</li><li>Nombre del Director suplente</li><li>Participación de los socios</li><br /><b>Sin más quedamos a la espera de la información.<br /> Muchas gracias.'
   };
 
   transporter.sendMail(mailOptions, function(error, info) {
