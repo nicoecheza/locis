@@ -1,0 +1,39 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.statute._id ? 'Editar estatuto' : 'Nuevo estatuto'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.statuteForm" class="form-horizontal" ng-submit="vm.save(vm.form.statuteForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Nombre</label>
+          <input name="name" type="text" ng-model="vm.statute.name" id="name" class="form-control" placeholder="Nombre" required>
+          <div ng-messages="vm.form.statuteForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">El nombre del estatuto es requerido.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="client">Cliente</label>
+          <select
+            ng-options="client._id as client.name for client in vm.clients"
+            ng-model="vm.statute.client">
+          </select>
+        </div>
+        <div class="form-group">
+          <span data-ng-show="!vm.regulation">Seleccione una regulación</span>
+          <p
+            class="regulation"
+            data-ng-show="vm.regulation"
+            data-ng-bind-html="toTrustedHTML(vm.regulation.template)"
+          ></p>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.statute._id ? 'Actualizar' : 'Crear'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

@@ -25,6 +25,10 @@
     // Update status
     function updateStatus(status) {
       vm.statute.status = status;
+      if (status === 'done') {
+        var check = confirm('Se creará una Sociedad con los datos en este estatuto. Está seguro?');
+        if (!check) return false;
+      }
       vm.statute.$update();
     }
 

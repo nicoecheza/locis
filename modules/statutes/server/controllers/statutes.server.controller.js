@@ -6,6 +6,7 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   Statute = mongoose.model('Statute'),
+  Society = mongoose.model('Society'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash');
 
@@ -49,6 +50,38 @@ exports.update = function(req, res) {
 
   statute = _.extend(statute , req.body);
 
+  if (statute.status === 'done') {
+
+    var society = new Society({
+      user: statute.user,
+      client: statute.client,
+      regulation: statute.regulation,
+      society: statute.society,
+      name: statute.name
+    });
+
+    console.log(society);
+
+    society.save(function(err) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      }
+
+      // statute.remove(function(err) {
+      //   if (err) {
+      //     return res.status(400).send({
+      //       message: errorHandler.getErrorMessage(err)
+      //     });
+      //   }
+      //   res.jsonp(statute);
+      // });
+
+    });
+
+  }
+
   statute.save(function(err) {
     if (err) {
       return res.status(400).send({
@@ -80,7 +113,7 @@ exports.delete = function(req, res) {
 /**
  * List of Statutes
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
   Statute.find().sort('-created').populate('user', 'displayName').exec(function(err, statutes) {
     if (err) {
       return res.status(400).send({

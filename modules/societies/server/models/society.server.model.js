@@ -13,7 +13,6 @@ var SocietySchema = new Schema({
   name: {
     type: String,
     default: '',
-    required: 'Please fill Society name',
     trim: true
   },
   created: {
@@ -23,6 +22,19 @@ var SocietySchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  client: {
+    type: Schema.ObjectId,
+    ref: 'Client'
+  },
+  regulation: {
+    type: Schema.ObjectId,
+    ref: 'Regulation'
+  },
+  society: {
+    type: Object,
+    default: {},
+    trim: true
   }
 });
 
