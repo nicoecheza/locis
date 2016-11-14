@@ -10,7 +10,7 @@
   function menuConfig(Menus) {
     // Set top bar menu items
     Menus.addMenuItem('topbar', {
-      title: 'Statutes',
+      title: 'Estatutos',
       state: 'statutes',
       type: 'dropdown',
       roles: ['user']
@@ -18,13 +18,13 @@
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'statutes', {
-      title: 'List Statutes',
+      title: 'Listar Estatutos',
       state: 'statutes.list'
     });
 
     // Add the dropdown create item
     Menus.addSubMenuItem('topbar', 'statutes', {
-      title: 'Create Statute',
+      title: 'Crear Estatutos',
       state: 'statutes.create',
       roles: ['user']
     });
