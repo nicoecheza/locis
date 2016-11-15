@@ -1,3 +1,20 @@
 .form-regulation textarea {
 	height: 200px;
 }
+
+.regulation {
+	line-height: 30px;
+}
+
+.regulation input, .regulation select {
+	height: 28px;
+	padding-left: 6px;
+	border-radius: 4px;
+	border: 1px solid rgba(153, 153, 153, 0.17);
+	outline: none;
+	margin: 0 2px;
+}
+
+.regulation input:focus, .regulation select:focus {
+	border: 1px solid #0de9ff;
+}

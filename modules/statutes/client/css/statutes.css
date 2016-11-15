@@ -66,4 +66,12 @@
 	margin-top: 3px;
 }
 
+.statute .control-label {
+	width: 100px;
+	text-align: left;
+}
+
+.statute .select {
+	width: 100px;
+}
 

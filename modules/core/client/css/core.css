@@ -57,3 +57,8 @@ a:hover .header-profile-image {
 	float: left;
 	width: 100%;
 }
+
+.alert.alert-warning.text-center {
+	float: left;
+	width: 100%;
+}

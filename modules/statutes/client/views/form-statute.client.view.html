@@ -3,7 +3,7 @@
     <h1>{{vm.statute._id ? 'Editar estatuto' : 'Nuevo estatuto'}}</h1>
   </div>
   <div class="col-md-12">
-    <form name="vm.form.statuteForm" class="form-horizontal" ng-submit="vm.save(vm.form.statuteForm.$valid)" novalidate>
+    <form name="vm.form.statuteForm" class="form-horizontal statute" ng-submit="vm.save(vm.form.statuteForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
           <label class="control-label" for="name">Nombre</label>
@@ -13,8 +13,9 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label" for="client">Cliente</label>
+          <label class="control-label" for="client">Cliente:</label>
           <select
+            class="select"
             ng-options="client._id as client.name for client in vm.clients"
             ng-model="client._id"
             ng-change="vm.statute.client = client._id">>
@@ -22,8 +23,9 @@
           </select>
         </div>
         <div class="form-group">
-          <label class="control-label" for="regulation">Regulación</label>
+          <label class="control-label" for="regulation">Regulación:</label>
           <select
+            class="select"
             ng-options="regulation._id as regulation.name for regulation in vm.regulations"
             ng-model="regulation._id"
             ng-change="vm.regulationDisplay(regulation._id)">

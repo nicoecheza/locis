@@ -23,10 +23,10 @@
     });
 
     // Add the dropdown create item
-    Menus.addSubMenuItem('topbar', 'societies', {
-      title: 'Crear Sociedades',
-      state: 'societies.create',
-      roles: ['admin']
-    });
+    // Menus.addSubMenuItem('topbar', 'societies', {
+    //   title: 'Crear Sociedades',
+    //   state: 'societies.create',
+    //   roles: ['admin']
+    // });
   }
 })();
