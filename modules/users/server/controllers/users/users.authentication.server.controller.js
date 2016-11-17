@@ -35,7 +35,7 @@ exports.create = function (req, res) {
       });
     } else {
 
-      return res.status(200);
+      res.json(user);
 
       // Remove sensitive data before login
       // user.password = undefined;

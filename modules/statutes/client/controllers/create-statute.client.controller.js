@@ -45,7 +45,7 @@
     }
 
     function getSocietyFields(regulation) {
-      var fields = document.querySelectorAll('.regulation input');
+      var fields = document.querySelectorAll('.regulation input, .regulation select');
       var result = {};
       fields.forEach(function(field) {
         result[field.name] = field.value;
