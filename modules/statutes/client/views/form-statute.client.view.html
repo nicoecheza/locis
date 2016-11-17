@@ -16,27 +16,16 @@
           <label class="control-label" for="client">Cliente:</label>
           <select
             class="select"
-            ng-options="client._id as client.name for client in vm.clients"
-            ng-model="client._id"
-            ng-change="vm.statute.client = client._id">>
-            <option data-ng-repeat="client in vm.clients">{{client.name}}</option>
+            ng-options="client as client.name for client in vm.clients track by client._id"
+            ng-model="vm.statute.client">
           </select>
         </div>
         <div class="form-group">
-          <label class="control-label" for="regulation">Regulación:</label>
-          <select
-            class="select"
-            ng-options="regulation._id as regulation.name for regulation in vm.regulations"
-            ng-model="regulation._id"
-            ng-change="vm.regulationDisplay(regulation._id)">
-          </select>
-        </div>
-        <div class="form-group">
-          <span data-ng-show="!vm.regulation">Seleccione una regulación</span>
+          <h5>Regulación: {{ vm.statute.regulation.name }}</h5>
           <p
             class="regulation"
-            data-ng-show="vm.regulation"
-            data-ng-bind-html="toTrustedHTML(vm.regulation.template)"
+            data-ng-show="vm.statute.regulation"
+            data-ng-bind-html="toTrustedHTML(vm.statute.regulation.template)"
           ></p>
         </div>
         <div class="form-group">

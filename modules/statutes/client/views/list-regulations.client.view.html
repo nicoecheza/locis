@@ -9,14 +9,11 @@
       <small class="list-group-item-text">
         Creado el
         <span data-ng-bind="regulation.created | date:'d MMM, y'"></span>
-        por
-        <span data-ng-if="regulation.user" data-ng-bind="regulation.user.displayName"></span>
-        <span data-ng-if="!regulation.user">Deleted User</span>
       </small>
       <h4 class="list-group-item-heading" data-ng-bind="regulation.name"></h4>
     </a>
   </div>
   <div class="alert alert-warning text-center" data-ng-if="vm.regulations.$resolved && !vm.regulations.length && vm.permission">
-    Aun no tiene regulaciones, quiere <a data-ui-sref="regulations.create">crear una nueva</a>?
+    Aun existe ninguna regulación!</a>
   </div>
 </section>

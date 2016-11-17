@@ -8,7 +8,8 @@ var path = require('path'),
   Statute = mongoose.model('Statute'),
   Society = mongoose.model('Society'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
-  _ = require('lodash');
+  _ = require('lodash'),
+  replacer = require('../types/replacer');
 
 /**
  * Create a Statute
@@ -46,7 +47,9 @@ exports.read = function(req, res) {
  * Update a Statute
  */
 exports.update = function(req, res) {
-  var statute = req.statute ;
+  var statute = req.statute;
+
+  console.log(req.body.society)
 
   statute = _.extend(statute , req.body);
 
@@ -60,23 +63,21 @@ exports.update = function(req, res) {
       name: statute.name
     });
 
-    console.log(society);
-
-    society.save(function(err) {
+    society.save(function(err, society) {
       if (err) {
         return res.status(400).send({
           message: errorHandler.getErrorMessage(err)
         });
       }
 
-      // statute.remove(function(err) {
-      //   if (err) {
-      //     return res.status(400).send({
-      //       message: errorHandler.getErrorMessage(err)
-      //     });
-      //   }
-      //   res.jsonp(statute);
-      // });
+      statute.remove(function(err) {
+        if (err) {
+          return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+          });
+        }
+        res.jsonp(society);
+      });
 
     });
 
@@ -114,7 +115,7 @@ exports.delete = function(req, res) {
  * List of Statutes
  */
 exports.list = function(req, res) {
-  Statute.find().sort('-created').populate('user', 'displayName').exec(function(err, statutes) {
+  Statute.find().sort('-created').populate(['user', 'client', 'regulation']).exec(function(err, statutes) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -136,7 +137,7 @@ exports.statuteByID = function(req, res, next, id) {
     });
   }
 
-  Statute.findById(id).populate('user', 'displayName').exec(function (err, statute) {
+  Statute.findById(id).populate(['user', 'client', 'regulation']).exec(function (err, statute) {
     if (err) {
       return next(err);
     } else if (!statute) {
@@ -144,7 +145,34 @@ exports.statuteByID = function(req, res, next, id) {
         message: 'No Statute with that identifier has been found'
       });
     }
+
+    statute.regulation.template = parseTemplate(statute.regulation.template, statute.society);
+
     req.statute = statute;
     next();
   });
 };
+
+function parseTemplate(tmpl, society) {
+
+  var init = tmpl.indexOf("{"),
+      end = tmpl.indexOf("}");
+
+  while (init >= 0 && end >= 0) {
+
+    // Get interpolation
+    var interpolation = tmpl.substring(init, end + 1),
+        parsed = JSON.parse(interpolation);
+
+    // Replace template interpolations with HTML
+    tmpl = tmpl.replace(interpolation, replacer(parsed, society));
+
+    // Update init & end positions looking for next interpolation
+    init = tmpl.indexOf("{");
+    end  = tmpl.indexOf("}");
+
+  }
+
+  return tmpl;
+
+}

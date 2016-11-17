@@ -3,7 +3,7 @@
     <h1 data-ng-bind="vm.regulation.name"></h1>
     <p class="regulation" data-ng-bind-html="toTrustedHTML(vm.regulation.template)"></p>
   </div>
-  <div class="pull-right"
+ <!--  <div class="pull-right"
        data-ng-show="vm.permission">
     <a class="btn btn-primary"
        data-ui-sref="regulations.edit({ regulationId: vm.regulation._id })">
@@ -12,15 +12,11 @@
     <a class="btn btn-primary" data-ng-click="vm.remove()">
       <i class="glyphicon glyphicon-trash"></i>
     </a>
-  </div>
+  </div> -->
   <small>
     <em class="text-muted">
       Creado el
       <span data-ng-bind="vm.regulation.created | date:'d MMM, y'"></span>
-      por
-      <span data-ng-if="vm.regulation.user"
-            data-ng-bind="vm.regulation.user.displayName"></span>
-      <span data-ng-if="!vm.regulation.user">Usuario borrado</span>
     </em>
   </small>
   <p class="lead" data-ng-bind="vm.regulation.content"></p>
