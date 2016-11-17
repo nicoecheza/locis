@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="pull-right"
-       data-ng-show="vm.client.isCurrentUserOwner">
+       data-ng-show="vm.permission || vm.client.isCurrentUserOwner">
     <a class="btn btn-primary"
        data-ui-sref="clients.edit({ clientId: vm.client._id })">
       <i class="glyphicon glyphicon-edit"></i>

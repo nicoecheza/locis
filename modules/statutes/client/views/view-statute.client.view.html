@@ -4,7 +4,7 @@
     <statuses />
   </div>
   <div class="pull-right"
-       data-ng-show="vm.permission">
+       data-ng-show="vm.permission && vm.statute.isCurrentUserOwner">
     <a class="btn btn-primary"
        data-ui-sref="statutes.edit({ statuteId: vm.statute._id })">
       <i class="glyphicon glyphicon-edit"></i>
