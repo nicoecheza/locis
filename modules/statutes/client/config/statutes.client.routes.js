@@ -25,7 +25,7 @@
       })
       .state('statutes.create', {
         url: '/create',
-        templateUrl: 'modules/statutes/client/views/form-statute.client.view.html',
+        templateUrl: 'modules/statutes/client/views/form-create-statute.client.view.html',
         controller: 'CreateStatuteController',
         controllerAs: 'vm',
         resolve: {
@@ -38,7 +38,7 @@
       })
       .state('statutes.edit', {
         url: '/:statuteId/edit',
-        templateUrl: 'modules/statutes/client/views/form-statute.client.view.html',
+        templateUrl: 'modules/statutes/client/views/form-edit-statute.client.view.html',
         controller: 'StatutesController',
         controllerAs: 'vm',
         resolve: {
