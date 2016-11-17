@@ -15,8 +15,8 @@
         <div class="form-group">
           <label class="control-label" for="client">Cliente</label>
           <select
-            ng-options="client._id as client.name for client in vm.clients"
-            ng-model="client._id">
+            ng-options="client._id as client.name for client in vm.clients track by client._id"
+            ng-model="vm.statute.client">
           </select>
         </div>
         <div class="form-group">
