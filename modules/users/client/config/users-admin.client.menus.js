@@ -13,5 +13,10 @@
       title: 'Administrar usuarios',
       state: 'admin.users'
     });
+
+    menuService.addSubMenuItem('topbar', 'admin', {
+      title: 'Crear usuario',
+      state: 'admin.user-create'
+    });
   }
 }());
