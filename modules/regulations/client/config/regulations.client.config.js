@@ -13,7 +13,7 @@
       title: 'Regulaciones',
       state: 'regulations',
       type: 'dropdown',
-      roles: ['user']
+      roles: ['superadmin']
     });
 
     // Add the dropdown create item

@@ -12,7 +12,17 @@ var path = require('path'),
   async = require('async'),
   crypto = require('crypto');
 
-var smtpTransport = nodemailer.createTransport(config.mailer.options);
+var smtpConfig = {
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, // use SSL
+    auth: {
+        user: 'locis.services@gmail.com',
+        pass: 'locis123456'
+    }
+};
+
+var smtpTransport = nodemailer.createTransport(smtpConfig);
 
 /**
  * Forgot for reset password (forgot POST)
